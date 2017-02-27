@@ -6,9 +6,15 @@ ext {
     g_minSdkVersion = 18
     g_targetSdkVersion = 18
     g_buildToolsVersion = "25.0.2"
-    supportLibraryVersion = "25.0.1"
+    supportLibraryVersion = "25.1.0"
+    multiDexVersion = "1.0.1"
+    guavaVersion = "21.0"
     rxAndroidVersion = "2.0.1"
     retrofitVersion = "2.2.0"
+    converterGsonVersion = retrofitVersion
+    adapterRxJava = retrofitVersion
+    daggerVersion = "2.10-rc1"
+    lombokVersion = '1.16.10'
     androidSpockVersion = "1.0-groovy-2.4"
 }
 
@@ -20,15 +26,15 @@ buildscript {
         classpath 'com.android.tools.build:gradle:2.2.3'
         classpath 'me.tatarka:gradle-retrolambda:3.5.0'
         classpath 'org.codehaus.groovy:groovy-android-gradle-plugin:1.1.0'
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath 'me.tatarka.retrolambda.projectlombok:lombok.ast:0.2.3.a2'
     }
+    configurations.classpath.exclude group: 'com.android.tools.external.lombok'
 }
 
 allprojects {
     repositories {
         jcenter()
+        maven { url "https://jitpack.io" }
     }
 }
 

@@ -39,11 +39,34 @@ android {
     }
 }
 
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xmaxerrs" << "500" // or whatever number you want
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile "com.android.support:appcompat-v7:${supportLibraryVersion}"
+    compile "com.android.support:preference-v7:$supportLibraryVersion"
+    compile "com.android.support:support-v4:$supportLibraryVersion"
+    compile "com.android.support:design:$supportLibraryVersion"
+    compile "com.android.support:multidex:$multiDexVersion"
+    compile "com.google.guava:guava:$guavaVersion"
+
+    // reactive x
     compile "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}"
-    compile "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    // retrofit
+    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$converterGsonVersion"
+    compile "com.squareup.retrofit2:adapter-rxjava:$adapterRxJava"
+
+    // lombok
+    provided "org.projectlombok:lombok:$lombokVersion"
+
+    // dependency injection
+    compile "com.google.dagger:dagger:${daggerVersion}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${daggerVersion}"
 
     androidTestCompile 'org.codehaus.groovy:groovy:2.4.7:grooid'
     testCompile("org.spockframework:spock-core:${androidSpockVersion}") {

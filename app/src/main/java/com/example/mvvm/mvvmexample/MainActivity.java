@@ -3,7 +3,7 @@ package com.example.mvvm.mvvmexample;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivityActivity
+public class MainActivity
 	extends AppCompatActivity {
 
 	@Override
