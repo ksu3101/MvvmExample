@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'groovyx.android'
+
+android {
+    compileSdkVersion g_compileSdkVersion
+    buildToolsVersion g_buildToolsVersion
+    defaultConfig {
+        applicationId "com.example.mvvm.mvvmexample"
+        minSdkVersion g_minSdkVersion
+        targetSdkVersion g_targetSdkVersion
+        versionCode g_versionCode
+        versionName g_versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        debug {
+            testCoverageEnabled false
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+        enabled = true
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+    dexOptions {
+        preDexLibraries = false
+        javaMaxHeapSize = '2048M'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "com.android.support:appcompat-v7:${supportLibraryVersion}"
+    compile "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}"
+    compile "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+
+    androidTestCompile 'org.codehaus.groovy:groovy:2.4.7:grooid'
+    testCompile("org.spockframework:spock-core:${androidSpockVersion}") {
+        exclude group: 'org.codehaus.groovy'
+        exclude group: 'junit'
+    }
+
+}
