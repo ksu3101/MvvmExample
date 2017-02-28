@@ -1,10 +1,8 @@
-package com.example.mvvm.mvvmexample.common.base.di.module;
+package com.example.mvvm.mvvmexample.common.di.module;
 
 import android.app.Application;
 import android.content.Context;
 import android.support.annotation.NonNull;
-
-import com.google.gson.annotations.Since;
 
 import dagger.Module;
 import dagger.Provides;

@@ -1,8 +1,6 @@
-package com.example.mvvm.mvvmexample.common.base.di.component;
+package com.example.mvvm.mvvmexample.common.di.component;
 
-import android.support.annotation.NonNull;
-
-import com.example.mvvm.mvvmexample.common.base.di.module.ApplicationModule;
+import com.example.mvvm.mvvmexample.common.di.module.ApplicationModule;
 
 import dagger.Component;
 

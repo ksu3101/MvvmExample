@@ -1,10 +1,10 @@
-package com.example.mvvm.mvvmexample.common.base.di.module;
+package com.example.mvvm.mvvmexample.common.di.module;
 
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.example.mvvm.mvvmexample.common.base.di.scope.PerActivity;
+import com.example.mvvm.mvvmexample.common.di.scope.PerActivity;
 
 import dagger.Module;
 import dagger.Provides;

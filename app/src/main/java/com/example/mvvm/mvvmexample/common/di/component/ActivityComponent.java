@@ -1,8 +1,8 @@
-package com.example.mvvm.mvvmexample.common.base.di.component;
+package com.example.mvvm.mvvmexample.common.di.component;
 
 import com.example.mvvm.mvvmexample.MainActivity;
-import com.example.mvvm.mvvmexample.common.base.di.module.ActivityModule;
-import com.example.mvvm.mvvmexample.common.base.di.scope.PerActivity;
+import com.example.mvvm.mvvmexample.common.di.module.ActivityModule;
+import com.example.mvvm.mvvmexample.common.di.scope.PerActivity;
 
 import dagger.Component;
 
