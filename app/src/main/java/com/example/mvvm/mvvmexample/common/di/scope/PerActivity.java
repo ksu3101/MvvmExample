@@ -1,4 +1,4 @@
-package com.example.mvvm.mvvmexample.common.base.di.scope;
+package com.example.mvvm.mvvmexample.common.di.scope;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

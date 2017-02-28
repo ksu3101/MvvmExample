@@ -1,4 +1,4 @@
-package com.example.mvvm.mvvmexample.common.base.databinding;
+package com.example.mvvm.mvvmexample.common.databinding;
 
 import android.databinding.BindingAdapter;
 import android.support.annotation.NonNull;
