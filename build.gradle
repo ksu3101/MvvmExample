@@ -9,6 +9,7 @@ ext {
     supportLibraryVersion = "25.1.0"
     multiDexVersion = "1.0.1"
     guavaVersion = "21.0"
+    typeKitVersion = "1.0.1"
     rxAndroidVersion = "2.0.1"
     retrofitVersion = "2.2.0"
     okHttpVersion = "3.6.0"
