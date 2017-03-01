@@ -1,7 +1,9 @@
-package com.example.mvvm.mvvmexample;
+package com.example.mvvm.mvvmexample.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.mvvm.mvvmexample.R;
 
 public class MainActivity
 	extends AppCompatActivity {

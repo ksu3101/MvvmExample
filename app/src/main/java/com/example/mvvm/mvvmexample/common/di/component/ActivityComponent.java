@@ -1,6 +1,6 @@
 package com.example.mvvm.mvvmexample.common.di.component;
 
-import com.example.mvvm.mvvmexample.MainActivity;
+import com.example.mvvm.mvvmexample.ui.MainActivity;
 import com.example.mvvm.mvvmexample.common.di.module.ActivityModule;
 import com.example.mvvm.mvvmexample.common.di.scope.PerActivity;
 

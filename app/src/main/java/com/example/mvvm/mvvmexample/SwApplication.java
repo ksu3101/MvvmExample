@@ -29,4 +29,8 @@ public class SwApplication extends MultiDexApplication {
 		return context;
 	}
 
+	public static ApplicationComponent getApplicationComponent() {
+		return applicationComponent;
+	}
+
 }
