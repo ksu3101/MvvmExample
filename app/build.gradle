@@ -47,32 +47,33 @@ gradle.projectsEvaluated {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "com.android.support:appcompat-v7:${supportLibraryVersion}"
+    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
     compile "com.android.support:preference-v7:$supportLibraryVersion"
     compile "com.android.support:support-v4:$supportLibraryVersion"
     compile "com.android.support:design:$supportLibraryVersion"
     compile "com.android.support:multidex:$multiDexVersion"
     compile "com.google.guava:guava:$guavaVersion"
+    compile "com.tsengvn:typekit:$typeKitVersion"
 
     // reactive x
-    compile "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}"
+    compile "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
     // retrofit2
     compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
     compile "com.squareup.retrofit2:converter-gson:$converterGsonVersion"
     compile "com.squareup.retrofit2:adapter-rxjava:$adapterRxJava"
     // okhttp3
-    compile "com.squareup.okhttp3:okhttp:${okHttpVersion}"
-    compile "com.squareup.okhttp3:logging-interceptor:${okHttpInterceptorVersion}"
+    compile "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    compile "com.squareup.okhttp3:logging-interceptor:$okHttpInterceptorVersion"
 
     // lombok
     provided "org.projectlombok:lombok:$lombokVersion"
 
     // dependency injection
-    compile "com.google.dagger:dagger:${daggerVersion}"
-    annotationProcessor "com.google.dagger:dagger-compiler:${daggerVersion}"
+    compile "com.google.dagger:dagger:$daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
 
     androidTestCompile 'org.codehaus.groovy:groovy:2.4.7:grooid'
-    testCompile("org.spockframework:spock-core:${androidSpockVersion}") {
+    testCompile("org.spockframework:spock-core:$androidSpockVersion") {
         exclude group: 'org.codehaus.groovy'
         exclude group: 'junit'
     }
