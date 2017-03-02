@@ -49,6 +49,10 @@ public abstract class VmActivity extends BaseActivity {
 		super.onDestroy();
 	}
 
+	public ActivityComponent getActivityComponent() {
+		return this.activityComponent;
+	}
+
 	@Nullable
 	protected abstract ViewModel createViewModel();
 
