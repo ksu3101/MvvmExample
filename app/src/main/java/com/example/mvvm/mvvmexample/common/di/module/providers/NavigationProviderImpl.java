@@ -1,4 +1,4 @@
-package com.example.mvvm.mvvmexample.common.di.module.helpers;
+package com.example.mvvm.mvvmexample.common.di.module.providers;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,11 +8,11 @@ import android.support.annotation.NonNull;
  * @author KangSungWoo
  * @since 2017-03-05
  */
-public class NavigationHelperImpl implements NavigationHelper {
+public class NavigationProviderImpl implements NavigationProvider {
 
 	private Context context;
 
-	public NavigationHelperImpl(@NonNull Context context) {
+	public NavigationProviderImpl(@NonNull Context context) {
 		this.context = context;
 	}
 
