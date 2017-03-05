@@ -32,7 +32,7 @@ public abstract class VmActivity extends BaseActivity {
 
 		onInject(activityComponent);
 
-		viewModel = createViewModel();
+		viewModel = getViewModel();
 		dataBinding = DataBindingUtil.setContentView(this, getLayoutId());
 
 		if (viewModel != null) {
@@ -53,7 +53,7 @@ public abstract class VmActivity extends BaseActivity {
 	}
 
 	@Nullable
-	protected abstract ViewModel createViewModel();
+	public abstract ViewModel getViewModel();
 
 	@LayoutRes
 	protected abstract int getLayoutId();
