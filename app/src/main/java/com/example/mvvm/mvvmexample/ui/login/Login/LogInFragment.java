@@ -1,4 +1,4 @@
-package com.example.mvvm.mvvmexample.ui.login.signin;
+package com.example.mvvm.mvvmexample.ui.login.Login;
 
 import android.support.annotation.NonNull;
 
@@ -13,18 +13,18 @@ import javax.inject.Inject;
  * @author KangSungWoo
  * @since 2017-03-04
  */
-public class SignInFragment extends VmFragment {
+public class LogInFragment extends VmFragment {
 
-	@Inject SignInFragmentVM signInFragmentVM;
+	@Inject LogInFragmentVM logInFragmentVM;
 
-	public static SignInFragment newInstance() {
-		return new SignInFragment();
+	public static LogInFragment newInstance() {
+		return new LogInFragment();
 	}
 
 	@NonNull
 	@Override
 	protected ViewModel createViewModel() {
-		return signInFragmentVM;
+		return logInFragmentVM;
 	}
 
 	@Override

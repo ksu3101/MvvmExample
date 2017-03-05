@@ -1,12 +1,11 @@
 package com.example.mvvm.mvvmexample.ui.login;
 
-import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 
 import com.example.mvvm.mvvmexample.R;
 import com.example.mvvm.mvvmexample.common.utils.ActivityUtils;
-import com.example.mvvm.mvvmexample.ui.login.signin.SignInFragment;
+import com.example.mvvm.mvvmexample.ui.login.Login.LogInFragment;
 import com.example.mvvm.mvvmexample.ui.login.signup.SignUpFragment;
 
 /**
@@ -38,7 +37,7 @@ public class LoginNavigationHelper {
 	public void showSignInFragment() {
 		ActivityUtils.replaceFragmentFromActivity(
 			fm,
-			SignInFragment.newInstance(),
+			LogInFragment.newInstance(),
 			R.id.login_fragment_container,
 			true,
 			R.anim.enter_from_right,
