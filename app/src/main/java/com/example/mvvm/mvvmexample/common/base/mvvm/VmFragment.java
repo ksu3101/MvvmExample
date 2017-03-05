@@ -16,7 +16,6 @@ import com.example.mvvm.mvvmexample.common.base.BaseFragment;
 import com.example.mvvm.mvvmexample.common.base.RxViewModel;
 import com.example.mvvm.mvvmexample.common.di.component.ActivityComponent;
 import com.example.mvvm.mvvmexample.common.di.component.DaggerActivityComponent;
-import com.example.mvvm.mvvmexample.common.di.module.ActivityModule;
 
 /**
  * @author KangSungWoo
@@ -35,7 +34,6 @@ public abstract class VmFragment extends BaseFragment {
 		} else {
 			activityComponent = DaggerActivityComponent.builder()
 				.applicationComponent(SwApplication.getApplicationComponent())
-				.activityModule(new ActivityModule(getActivity()))
 				.build();
 		}
 		onInject(activityComponent);

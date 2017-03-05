@@ -12,7 +12,6 @@ import com.example.mvvm.mvvmexample.common.base.BaseActivity;
 import com.example.mvvm.mvvmexample.common.base.RxViewModel;
 import com.example.mvvm.mvvmexample.common.di.component.ActivityComponent;
 import com.example.mvvm.mvvmexample.common.di.component.DaggerActivityComponent;
-import com.example.mvvm.mvvmexample.common.di.module.ActivityModule;
 
 /**
  * @author KangSungWoo
@@ -26,9 +25,9 @@ public abstract class VmActivity extends BaseActivity {
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
 		activityComponent = DaggerActivityComponent.builder()
 			.applicationComponent(SwApplication.getApplicationComponent())
-			.activityModule(new ActivityModule(this))
 			.build();
 
 		onInject(activityComponent);
@@ -36,7 +35,7 @@ public abstract class VmActivity extends BaseActivity {
 		viewModel = createViewModel();
 		dataBinding = DataBindingUtil.setContentView(this, getLayoutId());
 
-		if(viewModel != null) {
+		if (viewModel != null) {
 			dataBinding.setVariable(BR.vm, dataBinding);
 		}
 	}

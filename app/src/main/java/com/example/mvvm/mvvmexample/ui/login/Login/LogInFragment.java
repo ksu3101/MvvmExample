@@ -1,32 +1,39 @@
-package com.example.mvvm.mvvmexample.ui.login;
+package com.example.mvvm.mvvmexample.ui.login.Login;
 
-import android.support.annotation.Nullable;
+import android.support.annotation.NonNull;
 
 import com.example.mvvm.mvvmexample.R;
 import com.example.mvvm.mvvmexample.common.base.mvvm.ViewModel;
-import com.example.mvvm.mvvmexample.common.base.mvvm.VmActivity;
+import com.example.mvvm.mvvmexample.common.base.mvvm.VmFragment;
 import com.example.mvvm.mvvmexample.common.di.component.ActivityComponent;
+
+import javax.inject.Inject;
 
 /**
  * @author KangSungWoo
  * @since 2017-03-04
  */
-public class LoginActivity extends VmActivity {
+public class LogInFragment extends VmFragment {
 
-	@Nullable
+	@Inject LogInFragmentVM logInFragmentVM;
+
+	public static LogInFragment newInstance() {
+		return new LogInFragment();
+	}
+
+	@NonNull
 	@Override
 	protected ViewModel createViewModel() {
-		return null;
+		return logInFragmentVM;
 	}
 
 	@Override
 	protected int getLayoutId() {
-		return R.layout.login_activity;
+		return R.layout.login_signin_fragment;
 	}
 
 	@Override
 	protected void onInject(ActivityComponent activityComponent) {
 		activityComponent.inject(this);
 	}
-
 }
