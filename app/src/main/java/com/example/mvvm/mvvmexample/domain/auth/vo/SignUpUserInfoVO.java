@@ -1,4 +1,4 @@
-package com.example.mvvm.mvvmexample.domain.login.vo;
+package com.example.mvvm.mvvmexample.domain.auth.vo;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

@@ -12,12 +12,11 @@ import com.example.mvvm.mvvmexample.ui.login.signup.SignUpFragment;
  * @author KangSungWoo
  * @since 2017-03-05
  */
-
-public class LoginNavigationHelper {
+public class LoginNavigationProvider {
 
 	private FragmentManager fm;
 
-	public LoginNavigationHelper(@NonNull FragmentManager fm) {
+	public LoginNavigationProvider(@NonNull FragmentManager fm) {
 		this.fm = fm;
 	}
 
