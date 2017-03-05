@@ -3,8 +3,12 @@ package com.example.mvvm.mvvmexample.common.di.module;
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentManager;
 
+import com.example.mvvm.mvvmexample.common.di.module.helpers.NavigationHelper;
+import com.example.mvvm.mvvmexample.common.di.module.helpers.NavigationHelperImpl;
 import com.example.mvvm.mvvmexample.common.di.scope.PerActivity;
+import com.example.mvvm.mvvmexample.ui.login.LoginNavigationHelper;
 
 import dagger.Module;
 import dagger.Provides;
@@ -34,6 +38,20 @@ public class ActivityModule {
 	@NonNull
 	Activity provideActivity() {
 		return activity;
+	}
+
+	@Provides
+	@PerActivity
+	@NonNull
+	NavigationHelper provideNavigationHelper() {
+		return new NavigationHelperImpl(activity);
+	}
+
+	@Provides
+	@PerActivity
+	@NonNull
+	LoginNavigationHelper provideLoginNavigationHelper(@NonNull FragmentManager fm) {
+		return new LoginNavigationHelper(fm);
 	}
 
 }
