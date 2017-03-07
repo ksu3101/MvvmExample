@@ -4,6 +4,7 @@ import android.databinding.ObservableField;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
+import com.example.mvvm.mvvmexample.R;
 import com.example.mvvm.mvvmexample.common.base.RxViewModel;
 import com.example.mvvm.mvvmexample.common.di.module.providers.MessageProvider;
 import com.example.mvvm.mvvmexample.domain.auth.AuthService;
@@ -55,33 +56,31 @@ public class LogInFragmentVM extends RxViewModel {
 
 	private void login() {
 		if (TextUtils.isEmpty(userEmail.get())) {
-			messageProvider.showToast("이메일을 입력해 주세요.");
+			messageProvider.showToast(R.string.login_warn_empty_email);
 			return;
 		} else if (TextUtils.isEmpty(userPassWord.get())) {
-			messageProvider.showToast("비밀번호를 입력해 주세요.");
+			messageProvider.showToast(R.string.login_warn_empty_pw);
 			return;
 		}
 
-		addSubscriber(
-			authService.login(userEmail.get(), userPassWord.get())
-				.subscribe(
-					new Subscriber<UserInfoVO>() {
-						@Override
-						public void onCompleted() {
-
-						}
-
-						@Override
-						public void onError(Throwable e) {
-
-						}
-
-						@Override
-						public void onNext(UserInfoVO userInfoVO) {
-
-						}
+		addSubscriber(authService.login(userEmail.get(), userPassWord.get())
+			.subscribe(
+				new Subscriber<UserInfoVO>() {
+					@Override
+					public void onCompleted() {
 					}
-				)
+
+					@Override
+					public void onError(Throwable e) {
+						messageProvider.showToast(R.string.login_error_wrong_infos);
+					}
+
+					@Override
+					public void onNext(UserInfoVO userInfoVO) {
+
+					}
+				}
+			)
 		);
 	}
 

@@ -29,7 +29,7 @@ public class LogInFragment extends VmFragment {
 
 	@Override
 	protected int getLayoutId() {
-		return R.layout.login_login_fragment;
+		return R.layout.login_signin_fragment;
 	}
 
 	@Override
