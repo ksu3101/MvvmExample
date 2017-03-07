@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">MvvmExample</string>
+
+    <string name="c_ok">확인</string>
+    <string name="c_cancle">취소</string>
+
+    <string name="signup_title">회원가입</string>
+    <string name="signup_email">이메일</string>
+    <string name="signup_pw">비밀번호</string>
+    <string name="signup_pw_re">비밀번호 재입력</string>
+    <string name="signup_warn_empty_email">사용할 이메일을 입력해 주세요.</string>
+    <string name="signup_error_already_email">이미 사용중인 이메일 입니다.</string>
+    <string name="signup_warn_empty_pw">비밀번호를 입력해 주세요.</string>
+    <string name="signup_warn_empty_pw_re">비밀번호를 정확히 입력해 주세요.</string>
+    <string name="signup_error_result">회원가입에 실패 했습니다.</string>
+    <string name="signup_success_result">회원가입에 성공 했습니다.</string>
+
+    <string name="login_title">로그인</string>
+    <string name="login_warn_empty_email">이메일을 입력해 주세요.</string>
+    <string name="login_warn_empty_pw">비밀번호를 입력해 주세요.</string>
+    <string name="login_error_wrong_infos">로그인을 실패 했습니다.</string>
+
 </resources>
