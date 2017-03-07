@@ -5,10 +5,17 @@
                   type="com.example.mvvm.mvvmexample.ui.login.Login.LogInFragmentVM"/>
     </data>
 
-    <LinearLayout android:orientation="vertical"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent">
+    <RelativeLayout android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/flat_asphalt_sel">
 
-    </LinearLayout>
+        <Button android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/PrimaryButton"
+                android:layout_alignParentBottom="true"
+                android:text="@string/login_title"/>
+
+    </RelativeLayout>
 
 </layout>
