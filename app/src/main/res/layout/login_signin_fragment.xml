@@ -12,9 +12,23 @@
 
         <Button android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/login_signin_btn_login"
                 style="@style/PrimaryButton"
                 android:layout_alignParentBottom="true"
                 android:text="@string/login_title"/>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:paddingLeft="16dp"
+                      android:paddingRight="16dp"
+                      android:layout_above="@id/login_signin_btn_login">
+
+            <EditText android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      style="@style/EditTextWhite"
+                      android:hint="@string/login_warn_empty_email"/>
+
+        </LinearLayout>
 
     </RelativeLayout>
 
