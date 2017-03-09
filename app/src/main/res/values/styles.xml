@@ -26,6 +26,16 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">24sp</item>
     </style>
+    <!-- second button -->
+    <style name="SecondButton" parent="BaseButton">
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:background">@drawable/btn_second</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">24sp</item>
+    </style>
 
     <!-- base EditText -->
     <style name="BaseEditText">

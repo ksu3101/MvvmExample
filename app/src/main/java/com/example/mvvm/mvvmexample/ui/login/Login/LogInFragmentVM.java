@@ -40,17 +40,18 @@ public class LogInFragmentVM extends RxViewModel {
 		this.messageProvider = messageProvider;
 	}
 
-	public Action0 onClickBackButton = new Action0() {
-		@Override
-		public void call() {
-			loginNavigationProvider.popBackStack();
-		}
-	};
+	/**
+	 * 로그인 버튼
+	 */
+	public Action0 onClickLoginButton = () -> login();
 
-	public Action0 OnClickLoginButton = new Action0() {
+	/**
+	 * 회원 가입 버튼
+	 */
+	public Action0 onClickSignUpButton = new Action0() {
 		@Override
 		public void call() {
-			login();
+			loginNavigationProvider.showSignUpFragment();
 		}
 	};
 
