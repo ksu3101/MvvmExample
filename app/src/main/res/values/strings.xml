@@ -16,6 +16,7 @@
     <string name="signup_success_result">회원가입에 성공 했습니다.</string>
 
     <string name="login_title">로그인</string>
+    <string name="login_desc_get_signup">회원가입 하기</string>
     <string name="login_warn_empty_email">이메일을 입력해 주세요.</string>
     <string name="login_warn_empty_pw">비밀번호를 입력해 주세요.</string>
     <string name="login_error_wrong_infos">로그인을 실패 했습니다.</string>
