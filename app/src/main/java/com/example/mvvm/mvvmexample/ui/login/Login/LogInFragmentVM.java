@@ -58,7 +58,7 @@ public class LogInFragmentVM extends RxViewModel {
 		}
 	};
 
-	public OnReceived<String> onUserEmonUserEmailTextChanged = new OnReceived<String>() {
+	public OnReceived<String> onUserEmailTextChanged = new OnReceived<String>() {
 		@Override
 		public void onReceived(String s) {
 			userEmail.set(s);

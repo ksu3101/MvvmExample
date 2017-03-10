@@ -1,15 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable name="vm"
                   type="com.example.mvvm.mvvmexample.ui.login.signup.SignUpFragmentVm"/>
     </data>
 
-    <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/flat_asphalt_sel">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentBottom="true"
+                      android:id="@+id/login_signup_btn"
+                      android:orientation="horizontal">
+
+            <Button android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    style="@style/PrimaryButton"
+                    android:gravity="center"
+                    android:background="@color/transparent"
+                    android:onClick="@{vm.onClickSignUpButton}"
+                    android:textStyle="normal"
+                    android:textColor="#aaffffff"
+                    android:text="@string/c_cancle"/>
+
+            <Button android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    style="@style/PrimaryButton"
+                    android:onClick="@{vm.onClickSignUpButton}"
+                    android:text="@string/signup_title"/>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:paddingLeft="16dp"
+                      android:paddingRight="16dp"
+                      android:orientation="vertical"
+                      android:layout_above="@id/login_signup_btn">
+
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="100dp"
+                      android:gravity="center"
+                      android:text="S I G N U P"
+                      android:textColor="@color/white"
+                      android:textSize="40sp"/>
+
+            <com.example.mvvm.mvvmexample.common.widgets.ClearableEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    style="@style/EditTextWhite"
+                    android:inputType="textEmailAddress"
+                    android:text="@{vm.userEmail}"
+                    android:hint="@string/signup_email"
+                    app:onTextChanged="@{vm.onUserEmailTextChanged}"/>
+
+            <com.example.mvvm.mvvmexample.common.widgets.ClearableEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    style="@style/EditTextWhite"
+                    android:inputType="textPassword"
+                    android:text="@{vm.userPassWord}"
+                    android:hint="@string/signup_pw"
+                    app:onTextChanged="@{vm.onPasswordTextChanged}"/>
+
+            <com.example.mvvm.mvvmexample.common.widgets.ClearableEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    style="@style/EditTextWhite"
+                    android:inputType="textPassword"
+                    android:text="@{vm.userPassWord}"
+                    android:hint="@string/signup_pw_re"
+                    app:onTextChanged="@{vm.onRePasswordTextChanged}"/>
+
+        </LinearLayout>
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </layout>
