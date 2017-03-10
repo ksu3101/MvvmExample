@@ -6,6 +6,8 @@ import android.text.TextUtils;
 
 import com.example.mvvm.mvvmexample.R;
 import com.example.mvvm.mvvmexample.common.base.RxViewModel;
+import com.example.mvvm.mvvmexample.common.databinding.listeners.OnClickedListener;
+import com.example.mvvm.mvvmexample.common.databinding.listeners.OnReceived;
 import com.example.mvvm.mvvmexample.common.di.module.providers.MessageProvider;
 import com.example.mvvm.mvvmexample.domain.auth.AuthService;
 import com.example.mvvm.mvvmexample.domain.auth.vo.UserInfoVO;
@@ -13,6 +15,7 @@ import com.example.mvvm.mvvmexample.ui.login.LoginNavigationProvider;
 
 import rx.Subscriber;
 import rx.functions.Action0;
+import rx.functions.Action1;
 
 import javax.inject.Inject;
 
@@ -43,15 +46,29 @@ public class LogInFragmentVM extends RxViewModel {
 	/**
 	 * 로그인 버튼
 	 */
-	public Action0 onClickLoginButton = () -> login();
+	public OnClickedListener onClickLoginButton = () -> login();
 
 	/**
 	 * 회원 가입 버튼
 	 */
-	public Action0 onClickSignUpButton = new Action0() {
+	public OnClickedListener onClickSignUpButton = new OnClickedListener() {
 		@Override
-		public void call() {
+		public void onClickedView() {
 			loginNavigationProvider.showSignUpFragment();
+		}
+	};
+
+	public OnReceived<String> onUserEmonUserEmailTextChanged = new OnReceived<String>() {
+		@Override
+		public void onReceived(String s) {
+			userEmail.set(s);
+		}
+	};
+
+	public OnReceived<String> onPasswordTextChanged = new OnReceived<String>() {
+		@Override
+		public void onReceived(String s) {
+			userPassWord.set(s);
 		}
 	};
 

@@ -12,7 +12,6 @@ import com.example.mvvm.mvvmexample.common.di.component.ActivityComponent;
  * @since 2017-03-04
  */
 public class LoginActivity extends VmActivity {
-
 	@Nullable
 	@Override
 	public ViewModel getViewModel() {

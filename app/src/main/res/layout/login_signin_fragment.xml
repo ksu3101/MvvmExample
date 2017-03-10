@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable name="vm"
                   type="com.example.mvvm.mvvmexample.ui.login.Login.LogInFragmentVM"/>
@@ -46,19 +47,23 @@
                       android:textColor="@color/white"
                       android:textSize="40sp"/>
 
-            <EditText android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_marginTop="110dp"
-                      style="@style/EditTextWhite"
-                      android:text="@{vm.userEmail}"
-                      android:hint="@string/login_warn_empty_email"/>
+            <com.example.mvvm.mvvmexample.common.widgets.ClearableEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="110dp"
+                    style="@style/EditTextWhite"
+                    android:text="@{vm.userEmail}"
+                    android:hint="@string/login_warn_empty_email"
+                    app:onTextChanged="@{vm.onUserEmonUserEmailTextChanged}"/>
 
-            <EditText android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_marginTop="16dp"
-                      style="@style/EditTextWhite"
-                      android:text="@{vm.userPassWord}"
-                      android:hint="@string/login_warn_empty_pw"/>
+            <com.example.mvvm.mvvmexample.common.widgets.ClearableEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    style="@style/EditTextWhite"
+                    android:text="@{vm.userPassWord}"
+                    android:hint="@string/login_warn_empty_pw"
+                    app:onTextChanged="@{vm.onPasswordTextChanged}"/>
 
         </LinearLayout>
 
