@@ -3,6 +3,7 @@ package com.example.mvvm.mvvmexample.common.di.module;
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
 import com.example.mvvm.mvvmexample.common.di.module.providers.MessageProvider;
@@ -46,22 +47,28 @@ public class ActivityModule {
 
 	@Provides
 	@PerActivity
+	FragmentManager provideFragmentManager(@NonNull Activity activity) {
+		return ((FragmentActivity) activity).getSupportFragmentManager();
+	}
+
+	@Provides
+	@PerActivity
 	@NonNull
-	NavigationProvider provideNavigationHelper() {
+	NavigationProvider provideNavigationHelper(@NonNull Activity activity) {
 		return new NavigationProviderImpl(activity);
 	}
 
 	@Provides
 	@PerActivity
 	@NonNull
-	ResourceProvider provideResourceHelper() {
+	ResourceProvider provideResourceHelper(@NonNull Activity activity) {
 		return new ResourceProviderImpl(activity);
 	}
 
 	@Provides
 	@PerActivity
 	@NonNull
-	MessageProvider provideMessageHelper() {
+	MessageProvider provideMessageHelper(@NonNull Activity activity) {
 		return new MessageProviderImpl(activity);
 	}
 

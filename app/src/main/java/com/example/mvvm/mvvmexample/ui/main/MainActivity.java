@@ -6,7 +6,6 @@ import com.example.mvvm.mvvmexample.R;
 import com.example.mvvm.mvvmexample.common.base.mvvm.ViewModel;
 import com.example.mvvm.mvvmexample.common.base.mvvm.VmActivity;
 import com.example.mvvm.mvvmexample.common.di.component.ActivityComponent;
-import com.example.mvvm.mvvmexample.ui.MainActivityVM;
 
 import javax.inject.Inject;
 

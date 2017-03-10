@@ -1,6 +1,8 @@
-package com.example.mvvm.mvvmexample.ui;
+package com.example.mvvm.mvvmexample.ui.main;
 
 import com.example.mvvm.mvvmexample.common.base.RxViewModel;
+
+import javax.inject.Inject;
 
 /**
  * @author KangSungWoo
@@ -8,6 +10,7 @@ import com.example.mvvm.mvvmexample.common.base.RxViewModel;
  */
 public class MainActivityVM extends RxViewModel {
 
+	@Inject
 	public MainActivityVM() {
 
 	}
