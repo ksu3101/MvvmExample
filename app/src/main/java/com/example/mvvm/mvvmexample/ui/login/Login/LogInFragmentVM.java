@@ -9,6 +9,7 @@ import com.example.mvvm.mvvmexample.common.base.RxViewModel;
 import com.example.mvvm.mvvmexample.common.databinding.listeners.OnClickedListener;
 import com.example.mvvm.mvvmexample.common.databinding.listeners.OnReceived;
 import com.example.mvvm.mvvmexample.common.di.module.providers.MessageProvider;
+import com.example.mvvm.mvvmexample.common.utils.StringUtils;
 import com.example.mvvm.mvvmexample.domain.auth.AuthService;
 import com.example.mvvm.mvvmexample.domain.auth.vo.UserInfoVO;
 import com.example.mvvm.mvvmexample.ui.login.LoginNavigationProvider;
@@ -73,10 +74,10 @@ public class LogInFragmentVM extends RxViewModel {
 	};
 
 	private void login() {
-		if (TextUtils.isEmpty(userEmail.get())) {
+		if (StringUtils.isEmpty(userEmail.get())) {
 			messageProvider.showToast(R.string.login_warn_empty_email);
 			return;
-		} else if (TextUtils.isEmpty(userPassWord.get())) {
+		} else if (StringUtils.isEmpty(userPassWord.get())) {
 			messageProvider.showToast(R.string.login_warn_empty_pw);
 			return;
 		}

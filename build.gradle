@@ -18,7 +18,7 @@ ext {
     adapterRxJava = retrofitVersion
     daggerVersion = "2.10-rc1"
     lombokVersion = '1.16.10'
-    androidSpockVersion = "1.0-groovy-2.4"
+    androidSpockVersion = "1.1-groovy-2.4-rc-3"
 }
 
 buildscript {
@@ -37,6 +37,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        mavenCentral()
         maven { url "https://jitpack.io" }
     }
 }

@@ -23,7 +23,7 @@
                     style="@style/PrimaryButton"
                     android:gravity="center"
                     android:background="@color/transparent"
-                    android:onClick="@{vm.onClickSignUpButton}"
+                    android:onClick="@{vm.onClickedCancle}"
                     android:textStyle="normal"
                     android:textColor="#aaffffff"
                     android:text="@string/c_cancle"/>
@@ -68,7 +68,7 @@
                     android:layout_marginTop="16dp"
                     style="@style/EditTextWhite"
                     android:inputType="textPassword"
-                    android:text="@{vm.userPassWord}"
+                    android:text="@{vm.userPassword}"
                     android:hint="@string/signup_pw"
                     app:onTextChanged="@{vm.onPasswordTextChanged}"/>
 
@@ -78,7 +78,7 @@
                     android:layout_marginTop="16dp"
                     style="@style/EditTextWhite"
                     android:inputType="textPassword"
-                    android:text="@{vm.userPassWord}"
+                    android:text="@{vm.userRePassword}"
                     android:hint="@string/signup_pw_re"
                     app:onTextChanged="@{vm.onRePasswordTextChanged}"/>
 

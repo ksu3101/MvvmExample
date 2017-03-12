@@ -2,7 +2,6 @@ package com.example.mvvm.mvvmexample.domain.auth;
 
 import android.support.annotation.NonNull;
 
-import com.example.mvvm.mvvmexample.domain.auth.vo.SignUpUserInfoVO;
 import com.example.mvvm.mvvmexample.domain.auth.vo.UserInfoVO;
 
 import retrofit2.http.Body;
@@ -38,6 +37,9 @@ public interface AuthApi {
 
 	@FormUrlEncoded
 	@POST("/signUp")
-	Observable<UserInfoVO> signUp(@Body @NonNull SignUpUserInfoVO signUpUserInfoVO);
+	Observable<Boolean> signUp(
+		@Field("userEmail") @NonNull String userEmail,
+		@Field("userPassword") @NonNull String userPassword
+	);
 
 }
