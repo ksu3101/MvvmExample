@@ -14,6 +14,10 @@ android {
 		testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 		multiDexEnabled true
 	}
+	packagingOptions {
+		exclude 'META-INF/services/org.codehaus.groovy.transform.ASTTransformation'
+		exclude 'LICENSE.txt'
+	}
 	buildTypes {
 		debug {
 			testCoverageEnabled false
@@ -45,6 +49,15 @@ gradle.projectsEvaluated {
 	}
 }
 
+androidGroovy {
+	options {
+		configure(groovyOptions) {
+			javaAnnotationProcessing = true
+		}
+	}
+	skipJavaC = true
+}
+
 dependencies {
 	compile fileTree(dir: 'libs', include: ['*.jar'])
 	compile "com.android.support:appcompat-v7:$supportLibraryVersion"
@@ -72,13 +85,13 @@ dependencies {
 	compile "com.google.dagger:dagger:$daggerVersion"
 	annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
 
-	// unit test - junit
-	testCompile 'junit:junit:4.12'
 	// unit test - Spock android
+	//compile 'org.codehaus.groovy:groovy:2.4.7:grooid'
 	androidTestCompile 'org.codehaus.groovy:groovy:2.4.7:grooid'
-	testCompile("org.spockframework:spock-core:$androidSpockVersion") {
-		exclude group: 'org.codehaus.groovy'
-		exclude group: 'junit'
-	}
+	androidTestCompile "com.andrewreitz:spock-android:1.2.1"
+}
 
+// The default 'assemble' task only applies to normal variants. Add test variants as well.
+android.testVariants.all { variant ->
+	tasks.getByName('assemble').dependsOn variant.assemble
 }
