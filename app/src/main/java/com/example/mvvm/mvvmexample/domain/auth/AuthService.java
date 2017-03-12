@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 
 import com.example.mvvm.mvvmexample.common.network.NetApiGenerator;
 import com.example.mvvm.mvvmexample.common.utils.RxUtils;
-import com.example.mvvm.mvvmexample.domain.auth.vo.SignUpUserInfoVO;
 import com.example.mvvm.mvvmexample.domain.auth.vo.UserInfoVO;
 
 import rx.Observable;
@@ -50,8 +49,8 @@ public final class AuthService {
 	}
 
 	@NonNull
-	public Observable<UserInfoVO> signUp(@NonNull SignUpUserInfoVO signUpUserInfoVO) {
-		return authApi.signUp(signUpUserInfoVO)
+	public Observable<Boolean> signUp(@NonNull String userEmail, @NonNull String password) {
+		return authApi.signUp(userEmail, password)
 			.compose(RxUtils.applyBlockedCallSchedulers());
 	}
 

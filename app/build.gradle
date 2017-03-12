@@ -3,79 +3,95 @@ apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'groovyx.android'
 
 android {
-    compileSdkVersion g_compileSdkVersion
-    buildToolsVersion g_buildToolsVersion
-    defaultConfig {
-        applicationId "com.example.mvvm.mvvmexample"
-        minSdkVersion g_minSdkVersion
-        targetSdkVersion g_targetSdkVersion
-        versionCode g_versionCode
-        versionName g_versionName
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        multiDexEnabled true
-    }
-    buildTypes {
-        debug {
-            testCoverageEnabled false
-        }
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    dataBinding {
-        enabled = true
-    }
-    testOptions {
-        unitTests.returnDefaultValues = true
-    }
-    dexOptions {
-        preDexLibraries = false
-        javaMaxHeapSize = '2048M'
-    }
+	compileSdkVersion g_compileSdkVersion
+	buildToolsVersion g_buildToolsVersion
+	defaultConfig {
+		applicationId "com.example.mvvm.mvvmexample"
+		minSdkVersion g_minSdkVersion
+		targetSdkVersion g_targetSdkVersion
+		versionCode g_versionCode
+		versionName g_versionName
+		testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+		multiDexEnabled true
+	}
+	packagingOptions {
+		exclude 'META-INF/services/org.codehaus.groovy.transform.ASTTransformation'
+		exclude 'LICENSE.txt'
+	}
+	buildTypes {
+		debug {
+			testCoverageEnabled false
+		}
+		release {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+		}
+	}
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_1_8
+		targetCompatibility JavaVersion.VERSION_1_8
+	}
+	dataBinding {
+		enabled = true
+	}
+	testOptions {
+		unitTests.returnDefaultValues = true
+	}
+	dexOptions {
+		preDexLibraries = false
+		javaMaxHeapSize = '2048M'
+	}
 }
 
 gradle.projectsEvaluated {
-    tasks.withType(JavaCompile) {
-        options.compilerArgs << "-Xmaxerrs" << "500" // or whatever number you want
-    }
+	tasks.withType(JavaCompile) {
+		options.compilerArgs << "-Xmaxerrs" << "500" // or whatever number you want
+	}
+}
+
+androidGroovy {
+	options {
+		configure(groovyOptions) {
+			javaAnnotationProcessing = true
+		}
+	}
+	skipJavaC = true
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
-    compile "com.android.support:preference-v7:$supportLibraryVersion"
-    compile "com.android.support:support-v4:$supportLibraryVersion"
-    compile "com.android.support:design:$supportLibraryVersion"
-    compile "com.android.support:multidex:$multiDexVersion"
-    compile "com.google.guava:guava:$guavaVersion"
-    compile "com.tsengvn:typekit:$typeKitVersion"
+	compile fileTree(dir: 'libs', include: ['*.jar'])
+	compile "com.android.support:appcompat-v7:$supportLibraryVersion"
+	compile "com.android.support:preference-v7:$supportLibraryVersion"
+	compile "com.android.support:support-v4:$supportLibraryVersion"
+	compile "com.android.support:design:$supportLibraryVersion"
+	compile "com.android.support:multidex:$multiDexVersion"
+	compile "com.google.guava:guava:$guavaVersion"
+	compile "com.tsengvn:typekit:$typeKitVersion"
 
-    // reactive x
-    compile "io.reactivex:rxandroid:$rxAndroidVersion"
-    // retrofit2
-    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    compile "com.squareup.retrofit2:converter-gson:$converterGsonVersion"
-    compile "com.squareup.retrofit2:adapter-rxjava:$adapterRxJava"
-    // okhttp3
-    compile "com.squareup.okhttp3:okhttp:$okHttpVersion"
-    compile "com.squareup.okhttp3:logging-interceptor:$okHttpInterceptorVersion"
+	// reactive x
+	compile "io.reactivex:rxandroid:$rxAndroidVersion"
+	// retrofit2
+	compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+	compile "com.squareup.retrofit2:converter-gson:$converterGsonVersion"
+	compile "com.squareup.retrofit2:adapter-rxjava:$adapterRxJava"
+	// okhttp3
+	compile "com.squareup.okhttp3:okhttp:$okHttpVersion"
+	compile "com.squareup.okhttp3:logging-interceptor:$okHttpInterceptorVersion"
 
-    // lombok
-    provided "org.projectlombok:lombok:$lombokVersion"
+	// lombok
+	provided "org.projectlombok:lombok:$lombokVersion"
 
-    // dependency injection
-    compile "com.google.dagger:dagger:$daggerVersion"
-    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+	// dependency injection
+	compile "com.google.dagger:dagger:$daggerVersion"
+	annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
 
-    androidTestCompile 'org.codehaus.groovy:groovy:2.4.7:grooid'
-    testCompile("org.spockframework:spock-core:$androidSpockVersion") {
-        exclude group: 'org.codehaus.groovy'
-        exclude group: 'junit'
-    }
+	// unit test - Spock android
+	//compile 'org.codehaus.groovy:groovy:2.4.7:grooid'
+	androidTestCompile 'org.codehaus.groovy:groovy:2.4.7:grooid'
+	androidTestCompile "com.andrewreitz:spock-android:1.2.1"
+}
 
+// The default 'assemble' task only applies to normal variants. Add test variants as well.
+android.testVariants.all { variant ->
+	tasks.getByName('assemble').dependsOn variant.assemble
 }

@@ -3,11 +3,12 @@ package com.example.mvvm.mvvmexample.common.widgets;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.AppCompatEditText;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
+
+import com.example.mvvm.mvvmexample.common.utils.StringUtils;
 
 public class ClearableEditText
 	extends AppCompatEditText
@@ -110,7 +111,9 @@ public class ClearableEditText
 	}
 
 	private boolean isNotEmpty(CharSequence str) {
-		return !(TextUtils.isEmpty(str));
+		if (str == null)
+			return false;
+		return StringUtils.isNotEmpty(str.toString());
 	}
 
 }
