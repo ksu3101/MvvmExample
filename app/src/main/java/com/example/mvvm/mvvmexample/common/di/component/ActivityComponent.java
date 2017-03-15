@@ -2,6 +2,7 @@ package com.example.mvvm.mvvmexample.common.di.component;
 
 import com.example.mvvm.mvvmexample.common.di.module.ActivityModule;
 import com.example.mvvm.mvvmexample.common.di.scope.PerActivity;
+import com.example.mvvm.mvvmexample.ui.common.navdrawer.NavDrawerMainFragment;
 import com.example.mvvm.mvvmexample.ui.login.Login.LogInFragment;
 import com.example.mvvm.mvvmexample.ui.login.LoginActivity;
 import com.example.mvvm.mvvmexample.ui.login.signup.SignUpFragment;
@@ -22,5 +23,7 @@ public interface ActivityComponent {
 	void inject(SignUpFragment fragment);
 
 	void inject(MainActivity activity);
+
+	void inject(NavDrawerMainFragment fragment);
 
 }
